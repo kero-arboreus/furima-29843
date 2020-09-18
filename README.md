@@ -15,7 +15,7 @@
 
 ### Association
  has_many: items
- has_one: buyers
+ has_many: buyers
 
 
 ## itemsテーブル
