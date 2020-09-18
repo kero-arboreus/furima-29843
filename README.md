@@ -51,7 +51,7 @@
 
 ### Association
  belongs_to :user
- has_many :buyers
+ has_many :managements
 
 
 ## managements テーブル
