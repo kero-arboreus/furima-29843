@@ -23,9 +23,10 @@
 | column          | Type       | options                        |
 | --------------- | ---------- | ------------------------------ |
 | product_name    | string     | null: false                    |
+| description     | text       | null: false                    |
 | value           | integer    | null: false                    |
-| category        | integer     | null: false                   |
-| state           | integer     | null: false                   |
+| category        | integer    | null: false                    |
+| state           | integer    | null: false                    |
 | freight         | integer    | null: false                    |
 | shipment_region | integer    | null: false                    |
 | shipdate        | integer    | null: false                    |
