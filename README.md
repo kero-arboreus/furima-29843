@@ -55,10 +55,10 @@
 
 ## managements テーブル
 
-| column   | Type       | options                        |
-| -------- | ---------  | ------------------------------ |
-| item_id  | references | null: false, foreign_key: true |
-| buyer_id | references | null: false, foreign_key: true |
+| column | Type       | options                        |
+| -------| ---------  | ------------------------------ |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ### Association
  belongs_to :item
