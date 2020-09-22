@@ -14,8 +14,8 @@
 | birth           | date    | null: false |
 
 ### Association
- has_many: items
- has_many: buyers
+ has_many :items
+ has_many :buyers
 
 
 ## itemsテーブル
