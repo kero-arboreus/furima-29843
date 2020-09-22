@@ -17,12 +17,12 @@ class Item < ApplicationRecord
   end
 
   validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "Out of setting range"}
-  validates :shipment_region_id, numericality: { other_than: 0, message: "Select" }
 
   with_options numericality: { other_than: 1, message: "Select" } do
    validates :category_id
    validates :state_id
    validates :freight_id
+   validates :shipment_region_id
    validates :shipdate_id
   end
 end
