@@ -41,43 +41,43 @@ RSpec.describe Item, type: :model do
       it 'valueの値が300円未満では出品できないこと' do
         @item.value = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value Out of setting range")
+        expect(@item.errors.full_messages).to include('Value Out of setting range')
       end
 
       it 'valueの値が9,999,999円以上では出品できないこと' do
-        @item.value = 10000000
+        @item.value = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value Out of setting range")
+        expect(@item.errors.full_messages).to include('Value Out of setting range')
       end
 
       it 'category_idが選択されていないと出品できないこと' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category Select")
+        expect(@item.errors.full_messages).to include('Category Select')
       end
 
       it 'state_idが選択されていないと出品できないこと' do
         @item.state_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("State Select")
+        expect(@item.errors.full_messages).to include('State Select')
       end
 
       it 'freight_idが選択されていないと出品できないこと' do
         @item.freight_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Freight Select")
+        expect(@item.errors.full_messages).to include('Freight Select')
       end
 
       it 'shipment_region_idが選択されていないと出品できないこと' do
         @item.shipment_region_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipment region Select")
+        expect(@item.errors.full_messages).to include('Shipment region Select')
       end
 
       it 'shipdate_idが選択されていないと出品できないこと' do
         @item.shipdate_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipdate Select")
+        expect(@item.errors.full_messages).to include('Shipdate Select')
       end
     end
   end

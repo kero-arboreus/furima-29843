@@ -57,7 +57,7 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password Password include both letters and numbers')
       end
-      
+
       it 'passwordは半角英数字混合でないと登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
