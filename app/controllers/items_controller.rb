@@ -31,7 +31,6 @@ class ItemsController < ApplicationController
     @item.update(item_params)
 
     if @item.valid?
-      @item.save
       redirect_to item_path
     else
       render 'edit'
