@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit]
 
   def index
-    @items = Item.all.order("created_at DESC")
+    @items = Item.all.order('created_at DESC')
   end
 
   def new
@@ -32,14 +32,15 @@ class ItemsController < ApplicationController
     @item.update(item_params)
 
     if @item.valid?
-     @item.save
-     redirect_to item_path
+      @item.save
+      redirect_to item_path
     else
-     render 'edit'
+      render 'edit'
     end
   end
 
   private
+
   def item_params
     params.require(:item).permit(:image, :product_name, :description, :value, :category_id, :state_id, :freight_id, :shipment_region_id, :shipdate_id).merge(user_id: current_user.id)
   end
@@ -47,5 +48,4 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
-
 end
