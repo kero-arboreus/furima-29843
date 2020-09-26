@@ -1,8 +1,6 @@
 class Management < ApplicationRecord
-  
-  validates :token, presence: true
-  
-  has_one :management
+
+  has_one :buyer
   belongs_to :item
   belongs_to :user
 
