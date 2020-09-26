@@ -5,7 +5,7 @@ class CreateBuyers < ActiveRecord::Migration[6.0]
       t.integer :shipment_region_id,  null: false
       t.string :city,                 null: false
       t.string :address,              null: false 
-      t.string :building_name,        null: false
+      t.string :building_name
       t.string :phone_num,            null: false
       t.references :management,       foreign_key: true
       t.timestamps
