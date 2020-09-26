@@ -8,6 +8,7 @@ class ManagementsController < ApplicationController
   def create
     @management = ManagementBuyer.new(management_params) 
     if @management.valid?
+      pay_item
       @management.save
       return redirect_to root_path
     else
@@ -21,17 +22,15 @@ class ManagementsController < ApplicationController
   end
 
   def management_params
-    params.require(:management_buyer).permit(:postal_code, :region_id, :city, :address, :phone_num).merge( user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:token, :postal_code, :region_id, :city, :address, :phone_num).merge( user_id: current_user.id, item_id: params[:item_id])
   end
 
- 
-
-  #def pay_item
-    #Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    #Payjp::Charge.create(
-     # amount: @item[:value],
-      #card: management_params[:token],
-      #currency:'jpy',
-    #)
-  #end
+  def pay_item
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp::Charge.create(
+      amount: @item.value,
+      card: management_params[:token],
+      currency:'jpy',
+    )
+  end
 end

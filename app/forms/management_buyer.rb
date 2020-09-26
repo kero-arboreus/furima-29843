@@ -1,9 +1,10 @@
 class ManagementBuyer
 
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postal_code, :region_id, :city, :address, :building_name, :phone_num  
+  attr_accessor :token, :user_id, :item_id, :postal_code, :region_id, :city, :address, :building_name, :phone_num 
   
    with_options presence: true do
+    validates :token
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "Input correctly."}
     validates :region_id, numericality: { other_than: 1, message: 'Select' }
     validates :city
@@ -17,4 +18,4 @@ class ManagementBuyer
   end
  end 
 
- #validates :token
+ 
