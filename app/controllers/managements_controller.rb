@@ -1,27 +1,37 @@
 class ManagementsController < ApplicationController
-  
+  before_action :find_item, only: [:index, :create]
+
   def index
-    @item = Item.find(params[:item_id])
+    @management = ManagementBuyer.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
-    @management = @item.management.new(management_params) 
-    @management.save
+    @management = ManagementBuyer.new(management_params) 
+    if @management.valid?
+      @management.save
+      return redirect_to root_path
+    else
+      render "index"
+    end    
   end
 
   private
+  def find_item
+    @item = Item.find(params[:item_id])
+  end
 
   def management_params
-    params.require(:buyer).permit(:token, :postal_code, :shipment_region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.require(:management_buyer).permit(:postal_code, :region_id, :city, :address, :phone_num).merge( user_id: current_user.id, item_id: params[:item_id])
   end
 
-  def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    Payjp::Charge.create(
-      amount: @item[:value],
-      card: management_params[:token],
-      currency:'jpy'
-    )
-  end
+ 
+
+  #def pay_item
+    #Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    #Payjp::Charge.create(
+     # amount: @item[:value],
+      #card: management_params[:token],
+      #currency:'jpy',
+    #)
+  #end
 end

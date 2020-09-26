@@ -28,7 +28,7 @@
 | category_id        | integer    | null: false                    |
 | state_id           | integer    | null: false                    |
 | freight_id         | integer    | null: false                    |
-| shipment_region_id | integer    | null: false                    |
+| shipment_region_id     | integer    | null: false                    |
 | shipdate_id        | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
