@@ -65,6 +65,12 @@ RSpec.describe ManagementBuyer, type: :model do
         @management_buyer.valid?
         expect(@management_buyer.errors.full_messages).to include("Phone num is too long (maximum is 11 characters)")
       end
+
+      it 'phone_numにハイフンが含まれていると購入できない' do
+        @management_buyer.phone_num = "123-4567"
+        @management_buyer.valid?
+        expect(@management_buyer.errors.full_messages).to include("Phone num is not a number")
+      end
     end
   end
 end
