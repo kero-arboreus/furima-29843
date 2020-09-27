@@ -1,4 +1,3 @@
 class Buyer < ApplicationRecord
-belongs_to :management  
-
+  belongs_to :management
 end
