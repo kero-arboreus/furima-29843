@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'Password include both letters and numbers' }
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: 'include both letters and numbers' }
 
   with_options presence: true do
     validates :nickname
@@ -16,4 +16,5 @@ class User < ApplicationRecord
   end
 
   has_many :items
+  has_many :managements
 end

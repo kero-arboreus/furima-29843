@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
     end
 
     context '出品がうまくいくとき' do
-      it 'image、product_name、description、value、category_id、state_id、freight_id、shipment_region_id、shipdate_idがあれば出品できる' do
+      it '全ての値が正しく入力されていれば登録できること' do
         expect(@item).to be_valid
       end
     end

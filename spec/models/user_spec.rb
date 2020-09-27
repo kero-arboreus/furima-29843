@@ -6,7 +6,7 @@ describe User do
 
   describe 'ユーザー新規登録' do
     context '新規登録がうまくいくとき' do
-      it 'nicknameとemail、passwordとpassword_confirmation、last_nameとfirst_name、last_name_kanaとfirst_name_kana、birthが存在すれば登録できること' do
+      it '全ての値が正しく入力されていれば登録できること' do
         expect(@user).to be_valid
       end
     end
@@ -55,14 +55,14 @@ describe User do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password Password include both letters and numbers')
+        expect(@user.errors.full_messages).to include('Password include both letters and numbers')
       end
 
       it 'passwordは半角英数字混合でないと登録できない' do
         @user.password = '123456'
         @user.password_confirmation = '123456'
         @user.valid?
-        expect(@user.errors.full_messages).to include('Password Password include both letters and numbers')
+        expect(@user.errors.full_messages).to include('Password include both letters and numbers')
       end
 
       it 'passwordが存在してもpassword_confirmationが空では登録できないこと' do
