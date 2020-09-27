@@ -1,8 +1,14 @@
 class ManagementsController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_item, only: [:index, :create]
+
 
   def index
     @management = ManagementBuyer.new
+    if @item.user.id == current_user.id || @item.management.present?
+      redirect_to root_path
+    end
+    
   end
 
   def create
