@@ -5,11 +5,11 @@ class ManagementBuyer
   
    with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "Input correctly."}
-    validates :region_id, numericality: { other_than: 1, message: 'Select' }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'input correctly'}
+    validates :region_id, numericality: { other_than: 1, message: 'select' }
     validates :city
     validates :address
-    validates :phone_num, format: { with: /\A\d{10,11}\z/ }
+    validates :phone_num, length: { maximum: 11 }
    end
  
   def save
