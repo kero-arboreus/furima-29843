@@ -73,3 +73,11 @@ gem 'image_processing', '~> 1.2'
 gem 'active_hash'
 gem 'payjp'
 gem "aws-sdk-s3", require: false
+
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+end
