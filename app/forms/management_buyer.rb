@@ -4,8 +4,8 @@ class ManagementBuyer
 
   with_options presence: true do
     validates :token
-    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'input correctly' }
-    validates :region_id, numericality: { other_than: 1, message: 'select' }
+    validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を正しく入力してください' }
+    validates :region_id, numericality: { other_than: 1, message: 'を選択してください' }
     validates :city
     validates :address
     validates :phone_num, numericality: { only_integer: true }, length: { maximum: 11 }
