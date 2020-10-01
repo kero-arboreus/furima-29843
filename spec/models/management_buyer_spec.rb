@@ -21,13 +21,13 @@ RSpec.describe ManagementBuyer, type: :model do
       it 'tokenが空では購入できないこと' do
         @management_buyer.token = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("カード情報を入力してください")
+        expect(@management_buyer.errors.full_messages).to include('カード情報を入力してください')
       end
 
       it 'postal_codeが空では購入できないこと' do
         @management_buyer.postal_code = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@management_buyer.errors.full_messages).to include('郵便番号を入力してください')
       end
 
       it 'postal_codeに半角のハイフンが含まれていないと購入できないこと' do
@@ -45,19 +45,19 @@ RSpec.describe ManagementBuyer, type: :model do
       it 'cityが空では購入できないこと' do
         @management_buyer.city = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("市区町村を入力してください")
+        expect(@management_buyer.errors.full_messages).to include('市区町村を入力してください')
       end
 
       it 'addressが空では購入できないこと' do
         @management_buyer.address = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("番地を入力してください")
+        expect(@management_buyer.errors.full_messages).to include('番地を入力してください')
       end
 
       it 'phone_numが空では購入できないこと' do
         @management_buyer.phone_num = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("電話番号を入力してください")
+        expect(@management_buyer.errors.full_messages).to include('電話番号を入力してください')
       end
 
       it 'phone_numが11桁以上では購入できないこと' do

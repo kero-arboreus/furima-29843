@@ -17,25 +17,25 @@ RSpec.describe Item, type: :model do
       it 'imageが空では出品できないこと' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("出品画像を入力してください")
+        expect(@item.errors.full_messages).to include('出品画像を入力してください')
       end
 
       it 'product_nameが空では出品できないこと' do
         @item.product_name = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it 'descriptionが空では出品できないこと' do
         @item.description = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
 
       it 'valueが空では出品できないこと' do
         @item.value = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格を入力してください")
+        expect(@item.errors.full_messages).to include('販売価格を入力してください')
       end
 
       it 'valueの値が300円未満では出品できないこと' do

@@ -15,13 +15,13 @@ describe User do
       it 'nicknameが空では登録できないこと' do
         @user.nickname = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+        expect(@user.errors.full_messages).to include('ニックネームを入力してください')
       end
 
       it 'emailが空では登録できないこと' do
         @user.email = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("Eメールを入力してください")
+        expect(@user.errors.full_messages).to include('Eメールを入力してください')
       end
 
       it '重複したemailが存在する場合登録できない' do
@@ -41,7 +41,7 @@ describe User do
       it 'passwordが空では登録できない' do
         @user.password = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワードを入力してください")
+        expect(@user.errors.full_messages).to include('パスワードを入力してください')
       end
 
       it 'passwordが6文字以下では登録できない' do
@@ -68,19 +68,19 @@ describe User do
       it 'passwordが存在してもpassword_confirmationが空では登録できないこと' do
         @user.password_confirmation = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+        expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
       end
 
       it 'last_nameが空では登録できない' do
         @user.last_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("名字を入力してください")
+        expect(@user.errors.full_messages).to include('名字を入力してください')
       end
 
       it 'first_nameが空では登録できない' do
         @user.first_name = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前を入力してください")
+        expect(@user.errors.full_messages).to include('名前を入力してください')
       end
 
       it 'last_nameが全角でないと登録できない' do
@@ -98,13 +98,13 @@ describe User do
       it 'last_name_kanaが空では登録できない' do
         @user.last_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("名字(カナ)を入力してください")
+        expect(@user.errors.full_messages).to include('名字(カナ)を入力してください')
       end
 
       it 'first_name_kanaが空では登録できない' do
         @user.first_name_kana = nil
         @user.valid?
-        expect(@user.errors.full_messages).to include("名前(カナ)を入力してください")
+        expect(@user.errors.full_messages).to include('名前(カナ)を入力してください')
       end
 
       it 'last_name_kanaがカタカナでないと登録できない' do
@@ -122,7 +122,7 @@ describe User do
       it 'birthが空では登録できない' do
         @user.birth = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("生年月日を入力してください")
+        expect(@user.errors.full_messages).to include('生年月日を入力してください')
       end
     end
   end
