@@ -14,10 +14,10 @@ class Item < ApplicationRecord
     validates :image
     validates :product_name
     validates :description
-    validates :value, format: { with: /\A[0-9]+\z/, message: 'Half-width number' }
+    validates :value, format: { with: /\A[0-9]+\z/, message: 'は半角数字で入力してください' }
   end
 
-  with_options numericality: { other_than: 1, message: 'Select' } do
+  with_options numericality: { other_than: 1, message: 'を選択してください' } do
     validates :category_id
     validates :state_id
     validates :freight_id
@@ -25,5 +25,5 @@ class Item < ApplicationRecord
     validates :shipdate_id
   end
 
-  validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
+  validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'の設定可能範囲外です' }
 end
