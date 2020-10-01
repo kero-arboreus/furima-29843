@@ -1,3 +1,4 @@
+if (document.URL.match( /new/ ) || document.URL.match( /edit/ )) {
 function value(){
   const itemPrice = document.getElementById("item-price");
   itemPrice.addEventListener("keyup", (e) => {
@@ -11,3 +12,4 @@ function value(){
 };
 
 window.addEventListener("load", value);
+}
