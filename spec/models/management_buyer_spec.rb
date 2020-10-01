@@ -21,55 +21,55 @@ RSpec.describe ManagementBuyer, type: :model do
       it 'tokenが空では購入できないこと' do
         @management_buyer.token = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("Token can't be blank")
+        expect(@management_buyer.errors.full_messages).to include("カード情報を入力してください")
       end
 
       it 'postal_codeが空では購入できないこと' do
         @management_buyer.postal_code = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("Postal code can't be blank")
+        expect(@management_buyer.errors.full_messages).to include("郵便番号を入力してください")
       end
 
       it 'postal_codeに半角のハイフンが含まれていないと購入できないこと' do
         @management_buyer.postal_code = '1234567'
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include('Postal code input correctly')
+        expect(@management_buyer.errors.full_messages).to include('郵便番号を正しく入力してください')
       end
 
       it 'region_idが空では購入できないこと' do
         @management_buyer.region_id = 1
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include('Region select')
+        expect(@management_buyer.errors.full_messages).to include('都道府県を選択してください')
       end
 
       it 'cityが空では購入できないこと' do
         @management_buyer.city = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("City can't be blank")
+        expect(@management_buyer.errors.full_messages).to include("市区町村を入力してください")
       end
 
       it 'addressが空では購入できないこと' do
         @management_buyer.address = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("Address can't be blank")
+        expect(@management_buyer.errors.full_messages).to include("番地を入力してください")
       end
 
       it 'phone_numが空では購入できないこと' do
         @management_buyer.phone_num = nil
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include("Phone num can't be blank")
+        expect(@management_buyer.errors.full_messages).to include("電話番号を入力してください")
       end
 
       it 'phone_numが11桁以上では購入できないこと' do
         @management_buyer.phone_num = '123456789101'
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include('Phone num is too long (maximum is 11 characters)')
+        expect(@management_buyer.errors.full_messages).to include('電話番号は11文字以内で入力してください')
       end
 
       it 'phone_numにハイフンが含まれていると購入できない' do
         @management_buyer.phone_num = '123-4567'
         @management_buyer.valid?
-        expect(@management_buyer.errors.full_messages).to include('Phone num is not a number')
+        expect(@management_buyer.errors.full_messages).to include('電話番号は数値で入力してください')
       end
     end
   end
