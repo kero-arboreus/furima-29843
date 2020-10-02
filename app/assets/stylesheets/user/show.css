@@ -12,3 +12,8 @@
   color: darkgreen;
 }
 
+.card-destroy a{
+  text-decoration: none;
+  color: red;
+}
+
