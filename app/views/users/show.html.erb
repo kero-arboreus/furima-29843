@@ -41,8 +41,8 @@
 
  <div class="edit-menu">
   <div class="menu"><%= link_to '■会員情報編集', edit_user_path(current_user), method: :get %></div>
-  <div class="menu"><%= link_to '■カード情報登録', '#'%></div>
-  <div class="menu"><%= link_to '■カード情報編集', '#' %></div>
+  <div class="menu"><%= link_to '■カード情報登録', new_card_path %></div>
+  <div class="menu"><%= link_to '■カード情報編集', card_path(@user_id) %></div>
 </div>
 
 </div>
