@@ -1,0 +1,14 @@
+.edit-menu{
+  text-align: center;
+  padding-top: 50px;
+}
+
+.menu{
+  padding-bottom: 10px;
+}
+
+.menu a{
+  text-decoration: none;
+  color: darkgreen;
+}
+

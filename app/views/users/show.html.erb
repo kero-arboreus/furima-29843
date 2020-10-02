@@ -1,0 +1,52 @@
+<%= render "shared/second-header"%>
+
+<div class= 'registration-main'>
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      会員情報
+    </h1>
+  </div>
+
+    <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+    </div>
+    <%= current_user.nickname %>
+  </div>
+   <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+    </div>
+    <%= current_user.email %>
+  </div>
+ <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お名前（全角）</label>
+    </div>
+    <%= current_user.first_name %> <%= current_user.last_name %>
+  </div>
+ <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">お名前カナ（全角）</label>
+    </div>
+    <%= current_user.first_name_kana %> <%= current_user.last_name_kana %>
+  </div>
+ <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">生年月日</label>
+    </div>
+    <%= current_user.birth %>
+  </div>
+
+ <div class="edit-menu">
+  <div class="menu"><%= link_to '■会員情報編集', '#' %></div>
+  <div class="menu"><%= link_to '■カード情報登録', '#'%></div>
+  <div class="menu"><%= link_to '■カード情報編集', '#' %></div>
+</div>
+
+</div>
+</div>
+
+<%= render "shared/second-footer"%>
+
