@@ -1,10 +1,14 @@
 class ManagementsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_item, only: [:index, :create]
+  before_action :find_item, only: [:index, :create, :new]
 
   def index
     @management = ManagementBuyer.new
     redirect_to root_path if @item.user.id == current_user.id || @item.management.present?
+  end
+
+  def new
+    redirect_to new_card_path and return unless current_user.card.present?
   end
 
   def create
@@ -26,6 +30,16 @@ class ManagementsController < ApplicationController
 
   def management_params
     params.permit(:token, :postal_code, :region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
+    def pay_entry
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer_token = current_user.card.customer_token
+    Payjp::Charge.create(
+      amount: @item.value,
+      customer: customer_token,
+      currency: 'jpy' 
+      )
   end
 
   def pay_item

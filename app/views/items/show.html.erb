@@ -31,6 +31,7 @@
     <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
     <% elsif user_signed_in? && @item.management.nil? %>
     <%= link_to '購入画面に進む', item_managements_path(@item.id) ,class:"item-red-btn"%>
+    <%= link_to '登録されたカードで購入する', new_item_management_path(@item.id) ,class:"item-red-btn"%>
     <% end %>
 
     <div class="item-explain-box">
