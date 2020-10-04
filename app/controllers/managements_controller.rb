@@ -3,8 +3,8 @@ class ManagementsController < ApplicationController
   before_action :find_item, only: [:index, :create, :new]
 
   def index
-    @management = ManagementBuyer.new
     redirect_to root_path if @item.user.id == current_user.id || @item.management.present?
+    @management = ManagementBuyer.new
   end
 
   def new
@@ -12,14 +12,16 @@ class ManagementsController < ApplicationController
   end
 
   def create
-    @management = ManagementBuyer.new(management_params)
+      @management = ManagementBuyer.new(management_params)
+
     if @management.valid?
       pay_item
       @management.save
       redirect_to root_path
     else
       render 'index'
-    end
+    end  
+    
   end
 
   private
@@ -28,11 +30,15 @@ class ManagementsController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
+  def card_params
+    params.permit(:postal_code, :region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
+  end
+
   def management_params
     params.permit(:token, :postal_code, :region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
-    def pay_entry
+  def pay_entry
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     customer_token = current_user.card.customer_token
     Payjp::Charge.create(
