@@ -3,6 +3,14 @@ class Item < ApplicationRecord
   has_one :management
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      Item.where('product_name || description LIKE(?)', "%#{search}%")
+    else
+      Item.all
+    end
+  end
+    
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :state
@@ -27,3 +35,4 @@ class Item < ApplicationRecord
 
   validates :value, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'の設定可能範囲外です' }
 end
+
