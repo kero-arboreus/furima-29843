@@ -16,6 +16,8 @@
 ### Association
  has_many :items
  has_many :managements
+ has_many :comments
+ has_one :card
 
 
 ## itemsテーブル
@@ -35,6 +37,7 @@
 ### Association
  belongs_to :user
  has_one :management
+ has_many :comments
 
 
 ## buyersテーブル
@@ -64,3 +67,26 @@
  belongs_to :item
  belongs_to :user
  has_one :buyer
+
+ ## cards テーブル
+
+| column         | Type       | options                        |
+| -------------- | ---------  | ------------------------------ |
+| card_token     | string     | null: false                    |
+| customer_token | string     | null: false                    |
+| user           | references | null: false, foreign_key: true |
+
+### Association
+ belongs_to :user
+
+  ## comments テーブル
+
+| column | Type       | options                        |
+| -------| ---------  | ------------------------------ |
+| text   | text       | null: false                    |
+| item   | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
+
+### Association
+ belongs_to :user
+ belongs_to :item
