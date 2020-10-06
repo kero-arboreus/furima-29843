@@ -1,8 +1,9 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_one :management
-  has_one_attached :image
   has_many :comments
+  has_one_attached :image
+
 
   def self.search(search)
     if search != ''
