@@ -145,10 +145,21 @@
 /* /商品の概要 */
 
 .comment-box {
-  width: 40vw;
+  width: 60vw;
   background-color: #fff;
   margin: 5vh 0;
   text-align: center;
+}
+
+.comments {
+  height: 20vh;
+  margin-bottom: 5vh;
+  overflow: scroll;
+}
+
+.comment-title{
+  background: #3CCACE;
+  color: white;
 }
 
 .comment-text {
@@ -176,15 +187,6 @@
   font-size: 18px;
   border-radius: 100px;
   margin-bottom: 2vh;
-}
-
-.comment-flag {
-  display: flex;
-  justify-content: center;
-}
-
-.comment-flag-icon {
-  margin: 10px 5px 0 0;
 }
 
 .links {
