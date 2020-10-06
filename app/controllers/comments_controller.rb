@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
- protect_from_forgery :except => [:create]
+  protect_from_forgery except: [:create]
 
   def create
     comment = Comment.create(comment_params)
@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
   end
 
   private
-   def comment_params
+
+  def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, item_id: params[:item_id])
-   end
+  end
 end

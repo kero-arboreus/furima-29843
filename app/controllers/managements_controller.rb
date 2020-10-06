@@ -12,7 +12,7 @@ class ManagementsController < ApplicationController
   end
 
   def create
-      @management = ManagementBuyer.new(management_params)
+    @management = ManagementBuyer.new(management_params)
 
     if @management.valid?
       pay_item
@@ -20,8 +20,7 @@ class ManagementsController < ApplicationController
       redirect_to root_path
     else
       render 'index'
-    end  
-    
+    end
   end
 
   private
@@ -39,13 +38,13 @@ class ManagementsController < ApplicationController
   end
 
   def pay_entry
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer_token = current_user.card.customer_token
     Payjp::Charge.create(
       amount: @item.value,
       customer: customer_token,
-      currency: 'jpy' 
-      )
+      currency: 'jpy'
+    )
   end
 
   def pay_item
