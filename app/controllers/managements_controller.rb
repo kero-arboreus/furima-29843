@@ -30,11 +30,11 @@ class ManagementsController < ApplicationController
   end
 
   def card_params
-    params.permit(:postal_code, :region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:postal_code, :region_id, :city, :address, :building_name, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def management_params
-    params.permit(:token, :postal_code, :region_id, :city, :address, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
+    params.permit(:token, :postal_code, :region_id, :city, :address, :building_name, :phone_num).merge(user_id: current_user.id, item_id: params[:item_id])
   end
 
   def pay_entry
