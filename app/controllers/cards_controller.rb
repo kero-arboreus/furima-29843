@@ -2,6 +2,7 @@ class CardsController < ApplicationController
   before_action :authenticate_user!
 
   def new
+    card = Card.new
   end
 
   def create
