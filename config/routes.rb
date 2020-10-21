@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   resources :cards, only: [:new, :create, :show, :destroy]
   resources :items do
     resources :comments, only: :create
-    resources :managements, only: [:index, :create, :new]
+    resources :managements, only: [:index, :create, :new] do
+      collection do
+        post 'registered'
+      end
+    end
     collection do
       get 'search'
     end

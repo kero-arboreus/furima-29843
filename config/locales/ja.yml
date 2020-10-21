@@ -29,3 +29,10 @@ ja:
        city: 市区町村
        address: 番地
        phone_num: 電話番号
+
+     card_buyer:
+       postal_code: 郵便番号
+       region_id: 都道府県
+       city: 市区町村
+       address: 番地
+       phone_num: 電話番号

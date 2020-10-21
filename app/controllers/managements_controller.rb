@@ -1,6 +1,6 @@
 class ManagementsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_item, only: [:index, :create, :new]
+  before_action :find_item, only: [:index, :create, :new, :registered]
 
   def index
     redirect_to root_path if @item.user.id == current_user.id || @item.management.present?
@@ -22,6 +22,19 @@ class ManagementsController < ApplicationController
       render 'index'
     end
   end
+
+  def registered
+    @management = CardBuyer.new(card_params)
+
+    if @management.valid?
+      pay_entry
+      @management.save
+      redirect_to root_path
+    else
+      render 'index'
+    end
+  end
+
 
   private
 
