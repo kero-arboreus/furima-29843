@@ -9,6 +9,7 @@ class ManagementsController < ApplicationController
 
   def new
     redirect_to new_card_path and return unless current_user.card.present?
+    @management = CardBuyer.new(card_params)
   end
 
   def create
